@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en" data-theme="day">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PIPS WEBSIT!!! (by Pip, age 1½)</title>
+  <meta name="description"
+    content="Pip the Skull Baby made a website all by themself. Junior Dream Engineer at Midnight Nursery. Lullabies, nightlights, blocks and dream deliveries.">
+  <meta name="theme-color" content="#fff8f1">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Gaegu:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- hi grownup who is reading my code. i am ticklish. dont boop my nose 5 times. -pip -->
+
+  <!-- crayon wobble filters (used by every drawing on the page) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="crayon" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence id="crayonNoise" type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="1" />
+        <feDisplacementMap in="SourceGraphic" scale="3.5" />
+      </filter>
+      <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+        <feGaussianBlur stdDeviation="3" result="b" />
+        <feMerge>
+          <feMergeNode in="b" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+      <symbol id="star" viewBox="0 0 20 20">
+        <path d="M10 1.5l2.4 5.3 5.8.6-4.4 3.9 1.3 5.7L10 14l-5.1 3 1.3-5.7L1.8 7.4l5.8-.6z" />
+      </symbol>
+      <symbol id="heart" viewBox="0 0 20 20">
+        <path
+          d="M10 17.5S2 12.6 2 7.2C2 4.6 4 3 6 3c1.7 0 3.1 1 4 2.4C10.9 4 12.3 3 14 3c2 0 4 1.6 4 4.2 0 5.4-8 10.3-8 10.3z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="skip" href="#me">skip to Pip</a>
+
+  <!-- ============ TOP BAR (very early-web) ============ -->
+  <header class="topbar">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>★ WELCUM TO PIPS WEBSIT!!! ★ best vewed at NAP TIME ★ no grownups allowd (ok mama is allowd) ★ sine my
+          gestbook!! ★ i made dis all by myself ★</span>
+        <span>★ WELCUM TO PIPS WEBSIT!!! ★ best vewed at NAP TIME ★ no grownups allowd (ok mama is allowd) ★ sine my
+          gestbook!! ★ i made dis all by myself ★</span>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Main">
+      <a href="#me" class="crayon-btn c-pink">me</a>
+      <a href="#made" class="crayon-btn c-sun">fings i made</a>
+      <a href="#story" class="crayon-btn c-sky">my story</a>
+      <a href="#guestbook" class="crayon-btn c-mint">gestbook</a>
+    </nav>
+    <div class="controls">
+      <button id="soundBtn" class="toggle" aria-pressed="true" aria-label="Sound on. Click to mute">
+        <span class="t-icon" aria-hidden="true">🔊</span><span class="t-label">sound</span>
+      </button>
+      <button id="napBtn" class="toggle" aria-pressed="false" aria-label="Switch to nap time (dark mode)">
+        <span class="t-icon" aria-hidden="true">🌙</span><span class="t-label">nap time</span>
+      </button>
+      <button id="chaosBtn" class="toggle" aria-pressed="false" aria-label="Chaos mode: Pip grabs all the crayons">
+        <span class="t-icon" aria-hidden="true">🖍️</span><span class="t-label">chaos</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 1. WHAT THEY ARE ============ -->
+    <section id="me" class="section hero">
+      <h1 class="site-title" aria-label="Pip's website">
+        <span class="l c-pink">P</span><span class="l c-sun">I</span><span class="l c-sky">P</span><span
+          class="l c-lav">S</span>
+        <span class="l c-mint">W</span><span class="l c-pink">E</span><span class="l c-sun">B</span><span
+          class="l c-sky">Ƨ</span><span class="l c-lav">I</span><span class="l c-mint">T</span><span
+          class="l c-berry">!!</span>
+      </h1>
+      <p class="under-construction"><span class="uc-sign" aria-hidden="true">🚧</span> dis paje is under construkshun (i
+        am 1½) <span class="uc-sign" aria-hidden="true">🚧</span></p>
+
+      <div class="hero-grid">
+        <div class="pip-stage">
+          <div class="bubble" id="pipBubble" role="status" aria-live="polite">hewwo!! 👋</div>
+          <svg id="pip" class="pip" viewBox="0 0 300 360" role="img" aria-labelledby="pipTitle">
+            <title id="pipTitle">A crayon drawing of Pip: a round, smiling skull baby in a starry nightcap with a pink
+              bow. Pip's glowing eyes follow your cursor.</title>
+            <g filter="url(#crayon)" stroke="#5c4033" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <!-- cloud -->
+              <path class="cloud"
+                d="M40 330c-22 0-28-30-6-36-4-22 24-34 40-20 8-20 40-22 50-4 12-16 42-14 48 6 14-14 44-6 42 16 24 0 26 38 0 38z"
+                fill="#fff" />
+              <!-- body -->
+              <g id="pipBody">
+                <path d="M98 250c-16 30-14 60-6 80h116c8-20 10-50-6-80z" fill="#fde4ec" />
+                <use href="#heart" x="112" y="272" width="14" height="14" fill="#f49ac1" stroke="none" />
+                <use href="#heart" x="170" y="290" width="12" height="12" fill="#f49ac1" stroke="none" />
+                <use href="#heart" x="138" y="306" width="12" height="12" fill="#f49ac1" stroke="none" />
+                <path d="M150 256v66" stroke-width="2.5" stroke-dasharray="2 9" />
+                <!-- arms -->
+                <path id="armL" d="M100 262c-18 6-26 22-22 34 6 6 14 2 18-6" fill="#fde4ec" />
+                <path id="armR" class="wave-arm" d="M200 262c16-8 26-26 24-40" fill="none" stroke-width="16"
+                  stroke="#5c4033" />
+                <path class="wave-arm" d="M200 262c16-8 26-26 24-40" fill="none" stroke-width="10" stroke="#fde4ec" />
+                <circle class="wave-arm" cx="225" cy="216" r="10" fill="#fffaf2" />
+                <!-- feet -->
+                <ellipse cx="112" cy="330" rx="18" ry="10" fill="#d9c8ff" />
+                <ellipse cx="188" cy="330" rx="18" ry="10" fill="#d9c8ff" />
+              </g>
+              <!-- head -->
+              <g id="pipHead">
+                <ellipse cx="150" cy="172" rx="96" ry="86" fill="#fffaf2" />
+                <!-- cheeks -->
+                <ellipse cx="92" cy="222" rx="15" ry="9" fill="#f9b4c8" stroke="none" opacity=".7" />
+                <ellipse cx="210" cy="218" rx="15" ry="9" fill="#f9b4c8" stroke="none" opacity=".7" />
+                <!-- eye sockets -->
+                <ellipse cx="114" cy="190" rx="31" ry="34" fill="#3b2a2c" />
+                <ellipse cx="188" cy="186" rx="31" ry="34" fill="#3b2a2c" />
+                <!-- sleepy lids (night / easter egg) -->
+                <path class="lid" d="M84 190q30 22 60 0" fill="none" stroke="#ffd98a" stroke-width="5" />
+                <path class="lid" d="M158 186q30 22 60 0" fill="none" stroke="#ffd98a" stroke-width="5" />
+                <!-- nose (boop target) -->
+                <path id="pipNose" d="M143 222q7-8 14 0q-7 10-14 0z" fill="#3b2a2c" stroke-width="3" />
+                <!-- crooked smile -->
+                <path id="pipMouth" d="M132 242q12 12 30 4q6-3 10-8" fill="none" stroke-width="4" />
+              </g>
+              <!-- nightcap -->
+              <g id="pipCap">
+                <path d="M84 112c20-50 100-70 150-28 14 14 18 36 14 54-50-20-112-24-164-26z" fill="#fff1d6" />
+                <path d="M92 104c-30 4-56 28-58 72 10-18 26-30 52-40z" fill="#fff1d6" />
+                <circle cx="36" cy="182" r="17" fill="#e9d5bd" />
+                <path d="M58 138c60-18 130-16 192 6 2 10 0 18-4 24-60-22-126-24-190-8-4-8-2-16 2-22z" fill="#ffe7b8" />
+                <g stroke="none" fill="#e2b04a">
+                  <use href="#star" x="128" y="78" width="16" height="16" />
+                  <use href="#star" x="176" y="70" width="14" height="14" />
+                  <use href="#star" x="210" y="96" width="14" height="14" />
+                  <use href="#star" x="100" y="102" width="12" height="12" />
+                  <use href="#star" x="156" y="108" width="12" height="12" />
+                  <use href="#star" x="60" y="130" width="11" height="11" />
+                </g>
+                <!-- bow -->
+                <path d="M96 150l-26-14v30zM96 150l26-16v30z" fill="#f49ac1" />
+                <circle cx="96" cy="150" r="7" fill="#f7a8c8" />
+              </g>
+            </g>
+            <!-- glowing pupils live OUTSIDE the wobble filter so they stay crisp -->
+            <g id="pupils" filter="url(#glow)">
+              <circle id="pupilL" class="pupil" cx="114" cy="190" r="7" fill="#ffc861" />
+              <circle id="pupilR" class="pupil" cx="188" cy="186" r="7" fill="#ffc861" />
+              <g class="heart-eyes" fill="#ff6f9f">
+                <use href="#heart" x="100" y="176" width="28" height="28" />
+                <use href="#heart" x="174" y="172" width="28" height="28" />
+              </g>
+            </g>
+            <g class="zzz" fill="#a34063" font-family="Gaegu, cursive" font-weight="700">
+              <text x="236" y="60" font-size="28">z</text><text x="258" y="36" font-size="22">z</text><text x="276"
+                y="18" font-size="16">z</text>
+            </g>
+            <rect id="noseHit" x="128" y="206" width="44" height="32" fill="transparent" tabindex="0" role="button"
+              aria-label="Boop Pip's nose" />
+          </svg>
+        </div>
+
+        <div class="about paper lined tilt-r">
+          <span class="tape" aria-hidden="true"></span>
+          <h2 class="scrawl">all about me</h2>
+          <dl class="facts">
+            <div>
+              <dt>naym:</dt>
+              <dd>Pip</dd>
+            </div>
+            <div>
+              <dt>i am a:</dt>
+              <dd>skull baby <span class="small">(da nice kind)</span></dd>
+            </div>
+            <div>
+              <dt>age:</dt>
+              <dd>1 an a haf</dd>
+            </div>
+            <div>
+              <dt>my job:</dt>
+              <dd>Junyer Dreem Enjineer @ Midnite Nursery</dd>
+            </div>
+            <div>
+              <dt>i like:</dt>
+              <dd>moon, warm milk, hummin, socks, <s>bath</s> moon agen</dd>
+            </div>
+            <div>
+              <dt>i am:</dt>
+              <dd><s>scary</s> <s>spoooky</s> cozy!!</dd>
+            </div>
+            <div>
+              <dt>my eyes:</dt>
+              <dd>glow wen i am hapy. dey wach u. (nicely)</dd>
+            </div>
+          </dl>
+          <p class="mama">Pip is a gentle skull baby who designs dreams, lullabies and nightlights so the
+            neighbourhood's little creatures can sleep. Pip insisted on doing all the spelling. Also: Pip is ticklish,
+            so please don't boop the nose. <span class="sig">— Mama</span></p>
+        </div>
+
+        <figure class="polaroid tilt-l">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="assets/pip_portrait.webp" width="640" height="961"
+            alt="Official portrait of Pip the skull baby sitting on a cloud holding a lantern and a music box"
+            loading="eager" fetchpriority="high">
+          <figcaption>mama tuk dis foto of me ♥</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ 2. WHAT THEY DO ============ -->
+    <section id="made" class="section">
+      <h2 class="section-title"><span class="scribble-under">fings i made</span> <span class="sticker"
+          aria-hidden="true">NEW!</span></h2>
+      <p class="mama center">“Things I made.” Pip's work as Junior Dream Engineer. Everything here is playable. <span
+          class="sig">— Mama</span></p>
+
+      <!-- 2a Lullaby Lab -->
+      <article class="project paper" id="lullaby">
+        <span class="tape" aria-hidden="true"></span>
+        <header class="project-head">
+          <span class="num" aria-hidden="true">1</span>
+          <div>
+            <h3 class="scrawl">da Lullaby Lab</h3>
+            <p>i make songs for sleepy. wind da key to hear one, or play my xylofone!!</p>
+          </div>
+        </header>
+        <div class="lab-grid">
+          <div class="musicbox">
+            <img id="boxImg" src="assets/pip_lullaby_box.webp" width="640" height="578"
+              alt="Pip's pink music box with a unicorn on top and a golden winding key" loading="lazy">
+            <div class="notes" id="notes" aria-hidden="true"></div>
+            <button id="windBtn" class="big-btn c-sun"><span aria-hidden="true">🗝️</span> wind da key</button>
+            <p class="tiny" id="lullabyStatus" role="status" aria-live="polite">every lullaby is diffrent. i promis.</p>
+          </div>
+          <div class="xylo-wrap">
+            <div class="xylo" role="group" aria-label="Toy xylophone. Press a bar or keys 1 to 8">
+              <button class="bar" data-note="0" style="--h:100%;--c:#ff8fab" aria-label="Note 1 (key 1)">1</button>
+              <button class="bar" data-note="1" style="--h:93%;--c:#ffb36b" aria-label="Note 2 (key 2)">2</button>
+              <button class="bar" data-note="2" style="--h:86%;--c:#ffd166" aria-label="Note 3 (key 3)">3</button>
+              <button class="bar" data-note="3" style="--h:79%;--c:#95d5b2" aria-label="Note 4 (key 4)">4</button>
+              <button class="bar" data-note="4" style="--h:72%;--c:#8ecae6" aria-label="Note 5 (key 5)">5</button>
+              <button class="bar" data-note="5" style="--h:65%;--c:#a0b4ff" aria-label="Note 6 (key 6)">6</button>
+              <button class="bar" data-note="6" style="--h:58%;--c:#c8b6ff" aria-label="Note 7 (key 7)">7</button>
+              <button class="bar" data-note="7" style="--h:51%;--c:#f4a6e0" aria-label="Note 8 (key 8)">8</button>
+            </div>
+            <p class="tiny">tip: press 1–8 on ur keybord 🎹</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2b Nightlights -->
+      <article class="project paper tilt-r" id="nightlights">
+        <span class="tape" aria-hidden="true"></span>
+        <header class="project-head">
+          <span class="num" aria-hidden="true">2</span>
+          <div>
+            <h3 class="scrawl">my nite lite colekshun</h3>
+            <p>dark is ok wen u hav a frend. tap dem to turn on. <span id="lightCount" role="status"
+                aria-live="polite">0 / 4 on</span></p>
+          </div>
+        </header>
+        <div class="lights">
+          <button class="light" aria-pressed="false" style="--g:#ffd166" aria-label="Moon lantern">
+            <img src="assets/pip_dream_lantern.webp" width="640" height="571" alt="" loading="lazy">
+            <span class="light-name">moony</span>
+          </button>
+          <button class="light drawn" aria-pressed="false" style="--g:#8ecae6" aria-label="Jellyfish nightlight">
+            <svg viewBox="0 0 100 110" aria-hidden="true">
+              <g filter="url(#crayon)" stroke="#5c4033" stroke-width="3" fill="none" stroke-linecap="round">
+                <path class="lamp" d="M15 55c0-25 15-40 35-40s35 15 35 40z" fill="#cfe9ff" />
+                <path d="M25 58c-4 12 4 20 0 34M42 58c-4 14 4 22 0 38M58 58c4 14-4 22 0 38M75 58c4 12-4 20 0 34" />
+                <circle cx="40" cy="38" r="3" fill="#5c4033" />
+                <circle cx="60" cy="38" r="3" fill="#5c4033" />
+                <path d="M45 46q5 4 10 0" />
+              </g>
+            </svg>
+            <span class="light-name">jelly</span>
+          </button>
+          <button class="light drawn" aria-pressed="false" style="--g:#f4a6e0" aria-label="Mushroom nightlight">
+            <svg viewBox="0 0 100 110" aria-hidden="true">
+              <g filter="url(#crayon)" stroke="#5c4033" stroke-width="3" stroke-linecap="round">
+                <path class="lamp" d="M10 55c0-28 20-42 40-42s40 14 40 42z" fill="#ffc2dd" />
+                <circle cx="35" cy="34" r="6" fill="#fff" />
+                <circle cx="62" cy="28" r="5" fill="#fff" />
+                <circle cx="72" cy="45" r="4" fill="#fff" />
+                <path d="M34 55c-2 20 0 34 4 40h24c4-6 6-20 4-40z" fill="#fff6e8" />
+                <circle cx="44" cy="72" r="2.5" fill="#5c4033" />
+                <circle cx="56" cy="72" r="2.5" fill="#5c4033" />
+              </g>
+            </svg>
+            <span class="light-name">shroomy</span>
+          </button>
+          <button class="light drawn" aria-pressed="false" style="--g:#ffe08a" aria-label="Star nightlight">
+            <svg viewBox="0 0 100 110" aria-hidden="true">
+              <g filter="url(#crayon)" stroke="#5c4033" stroke-width="3" stroke-linejoin="round">
+                <path class="lamp" d="M50 8l12 27 29 3-22 20 7 29-26-15-26 15 7-29-22-20 29-3z" fill="#fff0a8" />
+                <circle cx="42" cy="50" r="2.5" fill="#5c4033" />
+                <circle cx="58" cy="50" r="2.5" fill="#5c4033" />
+                <path d="M45 58q5 4 10 0" fill="none" />
+                <rect x="38" y="92" width="24" height="12" rx="4" fill="#d9c8ff" />
+              </g>
+            </svg>
+            <span class="light-name">twinkl</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- 2c Blocks & rattle -->
+      <article class="project paper tilt-l" id="toys">
+        <span class="tape" aria-hidden="true"></span>
+        <header class="project-head">
+          <span class="num" aria-hidden="true">3</span>
+          <div>
+            <h3 class="scrawl">blocks &amp; rattl</h3>
+            <p>drag da blocks. stak dem. shake da rattl. (it is LOUD) <span class="tiny">keybord: tab to a block, arrow
+                keys to move</span></p>
+          </div>
+        </header>
+        <div class="playpen" id="playpen" aria-label="Playpen with draggable alphabet blocks">
+          <button class="block" style="--c:#ff8fab;--x:6%;--y:62%" aria-label="Block P">P</button>
+          <button class="block" style="--c:#ffd166;--x:22%;--y:66%" aria-label="Block I">I</button>
+          <button class="block" style="--c:#8ecae6;--x:38%;--y:60%" aria-label="Block P">P</button>
+          <button class="block" style="--c:#95d5b2;--x:56%;--y:64%" aria-label="Block Z">Z</button>
+          <button class="block" style="--c:#c8b6ff;--x:70%;--y:58%" aria-label="Block Z">Z</button>
+          <button class="rattle" id="rattle" aria-label="Shake the rattle">
+            <svg viewBox="0 0 80 140" aria-hidden="true">
+              <g filter="url(#crayon)" stroke="#5c4033" stroke-width="3.5">
+                <rect x="33" y="62" width="14" height="66" rx="7" fill="#ffd166" />
+                <circle cx="40" cy="40" r="32" fill="#ff8fab" />
+                <circle cx="28" cy="30" r="6" fill="#fff" />
+                <circle cx="50" cy="48" r="5" fill="#fff" />
+                <circle cx="40" cy="132" r="7" fill="#c8b6ff" />
+              </g>
+            </svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- 2d Dream Delivery -->
+      <article class="project paper" id="delivery">
+        <span class="tape" aria-hidden="true"></span>
+        <header class="project-head">
+          <span class="num" aria-hidden="true">4</span>
+          <div>
+            <h3 class="scrawl">dreem delivry rowts</h3>
+            <p>evry nite i fly my cloud an drop dreems in chimnees. scroll to fly wif me! <strong id="deliveredCount"
+                role="status" aria-live="polite">0 / 5 dreems deliverd</strong></p>
+          </div>
+        </header>
+        <div class="map-wrap">
+          <svg id="map" viewBox="0 0 800 340" role="img"
+            aria-label="A crayon map of rooftops. A dotted route connects five houses, and Pip's cloud flies along it as you scroll.">
+            <defs>
+              <linearGradient id="nightSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2b2a5c" />
+                <stop offset="1" stop-color="#5b4b8a" />
+              </linearGradient>
+            </defs>
+            <rect width="800" height="340" fill="url(#nightSky)" rx="18" />
+            <g fill="#fff7c2" class="map-stars">
+              <use href="#star" x="40" y="30" width="10" height="10" />
+              <use href="#star" x="170" y="60" width="8" height="8" />
+              <use href="#star" x="330" y="24" width="12" height="12" />
+              <use href="#star" x="520" y="50" width="9" height="9" />
+              <use href="#star" x="690" y="28" width="11" height="11" />
+              <use href="#star" x="760" y="90" width="8" height="8" />
+            </g>
+            <path d="M640 70a34 34 0 1 0 28 54a28 28 0 1 1-28-54z" fill="#ffe08a" filter="url(#crayon)" />
+            <g filter="url(#crayon)" stroke="#2a2340" stroke-width="3" stroke-linejoin="round">
+              <g class="house" data-i="0">
+                <path d="M40 340v-90l50-40 50 40v90z" fill="#ffb3c7" />
+                <rect x="74" y="270" width="30" height="26" class="win" fill="#4a3f6b" />
+                <rect x="104" y="214" width="14" height="22" fill="#a37b6a" />
+              </g>
+              <g class="house" data-i="1">
+                <path d="M180 340v-110l60-50 60 50v110z" fill="#bde0fe" />
+                <rect x="222" y="250" width="36" height="30" class="win" fill="#4a3f6b" />
+                <rect x="262" y="190" width="14" height="24" fill="#a37b6a" />
+              </g>
+              <g class="house" data-i="2">
+                <path d="M340 340v-80l44-36 44 36v80z" fill="#caffbf" />
+                <rect x="368" y="278" width="30" height="24" class="win" fill="#4a3f6b" />
+                <rect x="398" y="230" width="12" height="20" fill="#a37b6a" />
+              </g>
+              <g class="house" data-i="3">
+                <path d="M470 340v-120l56-46 56 46v120z" fill="#ffd6a5" />
+                <rect x="510" y="244" width="34" height="30" class="win" fill="#4a3f6b" />
+                <rect x="550" y="182" width="14" height="24" fill="#a37b6a" />
+              </g>
+              <g class="house" data-i="4">
+                <path d="M620 340v-90l50-40 50 40v90z" fill="#d9c8ff" />
+                <rect x="654" y="270" width="30" height="26" class="win" fill="#4a3f6b" />
+                <rect x="684" y="214" width="14" height="22" fill="#a37b6a" />
+              </g>
+            </g>
+            <path id="routeBg"
+              d="M30 150C70 120 100 170 110 205 150 120 200 100 268 185 320 140 360 150 404 225 440 120 520 110 556 175 600 120 650 130 690 205 720 170 760 160 790 140"
+              fill="none" stroke="rgba(255,255,255,.25)" stroke-width="4" stroke-dasharray="2 12"
+              stroke-linecap="round" />
+            <path id="route"
+              d="M30 150C70 120 100 170 110 205 150 120 200 100 268 185 320 140 360 150 404 225 440 120 520 110 556 175 600 120 650 130 690 205 720 170 760 160 790 140"
+              fill="none" stroke="#ffd166" stroke-width="5" stroke-linecap="round" />
+            <g id="flyer">
+              <g filter="url(#crayon)" stroke="#2a2340" stroke-width="2.5">
+                <path d="M-30 12c-12 0-12-16 0-16 0-12 16-16 22-6 6-10 24-8 26 4 12-2 16 18 2 18z" fill="#fff" />
+                <circle cx="0" cy="-14" r="13" fill="#fffaf2" />
+                <path d="M-13-18c4-12 22-14 28-2-8-3-20-2-28 2z" fill="#fff1d6" />
+                <circle cx="-5" cy="-12" r="3.6" fill="#3b2a2c" />
+                <circle cx="5" cy="-12" r="3.6" fill="#3b2a2c" />
+              </g>
+              <circle cx="-5" cy="-12" r="1.3" fill="#ffc861" />
+              <circle cx="5" cy="-12" r="1.3" fill="#ffc861" />
+            </g>
+          </svg>
+        </div>
+      </article>
+
+      <!-- 2e Growth chart -->
+      <article class="project paper tilt-r" id="growth">
+        <span class="tape" aria-hidden="true"></span>
+        <header class="project-head">
+          <span class="num" aria-hidden="true">5</span>
+          <div>
+            <h3 class="scrawl">how big i am at stuff</h3>
+            <p>mama draws a line on da wall evry birfday.</p>
+          </div>
+        </header>
+        <ul class="growth">
+          <li style="--v:92%;--c:#ffd166"><span>hummin lullabys</span><i></i><b>92</b></li>
+          <li style="--v:85%;--c:#8ecae6"><span>fixin nite lites</span><i></i><b>85</b></li>
+          <li style="--v:78%;--c:#c8b6ff"><span>dreem desine</span><i></i><b>78</b></li>
+          <li style="--v:40%;--c:#95d5b2"><span>crawlin fast</span><i></i><b>40</b></li>
+          <li style="--v:3%;--c:#ff8fab"><span>bein scary</span><i></i><b>0 :)</b></li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ============ 3. THEIR STORY (scroll-driven) ============ -->
+    <section id="story" class="story" aria-label="My story">
+      <div class="story-sticky">
+        <h2 class="section-title story-title"><span class="scribble-under">my story</span></h2>
+        <div class="story-stage">
+          <svg class="story-art" viewBox="0 0 400 260" aria-hidden="true">
+            <g filter="url(#crayon)" stroke="#2a2340" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <!-- scene 0: moon pocket -->
+              <g class="scene-art" data-scene="0">
+                <path d="M200 40a90 90 0 1 0 70 150a74 74 0 1 1-70-150z" fill="#ffe08a" />
+                <path d="M150 150q30 26 60 0v34q-30 18-60 0z" fill="#ffd166" />
+                <circle cx="180" cy="148" r="14" fill="#fffaf2" />
+                <circle cx="175" cy="147" r="3.5" fill="#3b2a2c" />
+                <circle cx="186" cy="147" r="3.5" fill="#3b2a2c" />
+              </g>
+              <!-- scene 1: crying creatures -->
+              <g class="scene-art" data-scene="1">
+                <path d="M40 260v-80l50-40 50 40v80z" fill="#bde0fe" />
+                <path d="M250 260v-96l56-46 56 46v96z" fill="#ffb3c7" />
+                <circle cx="90" cy="210" r="18" fill="#fff" />
+                <path d="M82 206h4M94 206h4" />
+                <path d="M84 220q6-6 12 0" fill="none" />
+                <path d="M80 212v10M100 212v10" stroke="#8ecae6" />
+                <circle cx="306" cy="200" r="20" fill="#fff" />
+                <path d="M298 196h4M310 196h4" />
+                <path d="M300 212q6-6 12 0" fill="none" />
+                <path d="M296 202v12M316 202v12" stroke="#8ecae6" />
+                <text x="150" y="90" font-family="Gaegu" font-size="34" fill="#fff" stroke="none">WAAAH</text>
+              </g>
+              <!-- scene 2: moonbeam slide -->
+              <g class="scene-art" data-scene="2">
+                <path d="M60 30a40 40 0 1 0 30 66a32 32 0 1 1-30-66z" fill="#ffe08a" />
+                <path d="M80 70L330 240h-60L60 90z" fill="#fff3b0" opacity=".85" />
+                <circle cx="200" cy="150" r="16" fill="#fffaf2" />
+                <circle cx="195" cy="148" r="4" fill="#3b2a2c" />
+                <circle cx="206" cy="148" r="4" fill="#3b2a2c" />
+                <path d="M186 140q12-14 28 0" fill="#fff1d6" />
+                <ellipse cx="340" cy="170" rx="30" ry="34" fill="#c9a27e" />
+                <circle cx="330" cy="160" r="9" fill="#fff" />
+                <circle cx="350" cy="160" r="9" fill="#fff" />
+                <circle cx="330" cy="160" r="3.5" fill="#2a2340" />
+                <circle cx="350" cy="160" r="3.5" fill="#2a2340" />
+                <path d="M336 174l4 6 4-6z" fill="#ffb36b" />
+              </g>
+              <!-- scene 3: everyone sleeps -->
+              <g class="scene-art" data-scene="3">
+                <path d="M60 230c-30 0-30-40 0-40 0-30 40-36 52-14 12-22 60-18 64 10 28-4 34 44 4 44z" fill="#fff" />
+                <circle cx="120" cy="176" r="26" fill="#fffaf2" />
+                <path d="M106 176q6 5 12 0M124 176q6 5 12 0" fill="none" />
+                <path d="M96 166c6-20 40-26 50-4-14-6-34-6-50 4z" fill="#fff1d6" />
+                <text x="160" y="140" font-family="Gaegu" font-size="30" fill="#ffd166" stroke="none">z z z</text>
+                <path d="M260 260v-70l40-32 40 32v70z" fill="#caffbf" />
+                <rect x="286" y="206" width="28" height="24" fill="#ffd166" />
+              </g>
+            </g>
+          </svg>
+          <div class="story-text">
+            <p class="scene-text" data-scene="0"><b>1.</b> wen i was a tiny tiny skull, i livd in da moon's pockit. it
+              was cozy an very very quiet in dere.</p>
+            <p class="scene-text" data-scene="1"><b>2.</b> one nite i herd crying. all da littel creechers cudnt sleep!
+              too dark. too loud. no lullaby. :(</p>
+            <p class="scene-text" data-scene="2"><b>3.</b> so i slid down a moonbeam to Midnite Nursery. Boss Owl gave
+              me a hat wif stars an sed “ur hired.”</p>
+            <p class="scene-text" data-scene="3"><b>4.</b> now evry nite i make dreems, hum lullabys an fix nite lites.
+              evrybody sleeps cozy. even me… zzz</p>
+          </div>
+        </div>
+        <ol class="story-dots" aria-hidden="true">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ GUESTBOOK ============ -->
+    <section id="guestbook" class="section">
+      <h2 class="section-title"><span class="scribble-under">sine my gestbook!!</span></h2>
+      <div class="gb-grid">
+        <form id="gbForm" class="paper lined tilt-l" autocomplete="off">
+          <span class="tape" aria-hidden="true"></span>
+          <label for="gbName">ur naym</label>
+          <input id="gbName" name="name" maxlength="24" required placeholder="bob">
+          <label for="gbMsg">say sumfing nice</label>
+          <textarea id="gbMsg" name="msg" maxlength="140" rows="3" required placeholder="hi pip u r cute"></textarea>
+          <fieldset class="stickers">
+            <legend>pik a stiker</legend>
+            <label><input type="radio" name="sticker" value="🌙" checked><span>🌙</span></label>
+            <label><input type="radio" name="sticker" value="⭐"><span>⭐</span></label>
+            <label><input type="radio" name="sticker" value="🍼"><span>🍼</span></label>
+            <label><input type="radio" name="sticker" value="🧸"><span>🧸</span></label>
+            <label><input type="radio" name="sticker" value="💀"><span>💀</span></label>
+          </fieldset>
+          <button class="big-btn c-pink" type="submit">sine it!</button>
+          <p class="mama">Your note is saved in this browser so Pip remembers you next time. <span class="sig">—
+              Mama</span></p>
+        </form>
+        <ul id="gbList" class="gb-list" aria-live="polite"></ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="counter" aria-label="Visitor counter">
+      <span>u r vizitor #</span>
+      <span class="odometer" id="odometer" aria-live="polite"></span>
+    </div>
+    <div class="badges" aria-hidden="true">
+      <span class="badge b1">MADE WIF<br>CRAYONS</span>
+      <span class="badge b2">NO<br>GROWNUPS</span>
+      <span class="badge b3">BEST AT<br>NAP TIME</span>
+      <span class="badge b4">haX.baby<br>2026</span>
+    </div>
+    <nav class="webring" aria-label="Baby webring (decorative)">
+      <a href="#me">« prev baby</a> · <span>🍼 baby webring 🍼</span> · <a href="#me">next baby »</a>
+    </nav>
+    <p class="copy">© 2026 Pip (age 1½). made on mama's laptop. <button id="footerMoon" class="moon-btn"
+        aria-label="A tiny sleepy moon">🌙</button></p>
+  </footer>
+
+  <!-- secret (Easter egg) -->
+  <div id="secret" class="secret" role="dialog" aria-modal="true" aria-labelledby="secretTitle" hidden>
+    <div class="secret-card paper">
+      <img src="assets/pip_avatar_cloud.webp" width="640" height="779" alt="Pip waving from a dream cloud"
+        loading="lazy">
+      <h2 id="secretTitle" class="scrawl">u found my seekrit!!!</h2>
+      <p>hehehe dat TIKLED. now u r my bestest fren foreva. here is a dreem for u ♥</p>
+      <button id="secretClose" class="big-btn c-sky">ok bye (nap time)</button>
+    </div>
+  </div>
+
+  <div id="flashlight" class="flashlight" aria-hidden="true"></div>
+  <canvas id="fx" class="fx" aria-hidden="true"></canvas>
+  <script src="script.js"></script>
+</body>
+
+</html>
